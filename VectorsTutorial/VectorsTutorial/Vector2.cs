@@ -52,12 +52,12 @@ namespace VectorsTutorial
         //finds right handed perpendicular vector
         Vector2 GetPerpendicularRH()
         {
-            return { -y, x };
+            return new Vector2(-y, x);
         }
         //returns the left handed perpendicular vector
         Vector2 GetPerpendicularLH()
         {
-            return { y, -x };
+            return  new Vector2(y, -x);
         }
         //finds the angle between the vectors
         float AngleBetween(Vector2 other)
