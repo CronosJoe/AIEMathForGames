@@ -44,6 +44,32 @@ namespace VectorsTutorial
             tempVect2.y /= m;
             return tempVect2;
         }
+        //returns the dot product
+        public float Dot(Vector2 rhs)
+        {
+            return x * rhs.x + y * rhs.y;
+        }
+        //finds right handed perpendicular vector
+        Vector2 GetPerpendicularRH()
+        {
+            return { -y, x };
+        }
+        //returns the left handed perpendicular vector
+        Vector2 GetPerpendicularLH()
+        {
+            return { y, -x };
+        }
+        //finds the angle between the vectors
+        float AngleBetween(Vector2 other)
+        {
+            // normalise the vectors
+            Vector2 a = GetNormalised();
+            Vector2 b = other.GetNormalised();
+            // calculate the dot product
+            float d = a.x * b.x + a.y * b.y;
+            // return the angle between them
+            return (float)Math.Acos(d);
+        }
     }
 
     class Vector3
@@ -100,6 +126,30 @@ namespace VectorsTutorial
             tempVect3.z /= m;
             return tempVect3;
         }
+        //returns the dot prodcut of the vector
+        public float Dot(Vector3 rhs)
+        {
+            return x * rhs.x + y * rhs.y + z * rhs.z;
+        }
+        //Cross product of a 3d vector
+        public Vector3 Cross(Vector3 rhs)
+        {
+            return new Vector3(
+           y * rhs.z - z * rhs.y,
+           z * rhs.x - x * rhs.z,
+           x * rhs.y - y * rhs.x);
+        }
+        //finds the angle between the vectors
+        float AngleBetween(Vector3 other)
+        {
+            // normalise the vectors
+            Vector3 a = GetNormalised();
+            Vector3 b = other.GetNormalised();
+            // calculate the dot product
+            float d = a.x * b.x + a.y * b.y + a.z * b.z;
+            // return the angle between them
+            return (float)Math.Acos(d);
+        }
     }
     class Vector4
     {
@@ -149,6 +199,22 @@ namespace VectorsTutorial
             tempVect4.z /= m;
             tempVect4.w /= m;
             return tempVect4;
+        }
+        //returns the dot product
+        public float Dot(Vector4 rhs)
+        {
+            return x * rhs.x + y * rhs.y + z * rhs.z + w * rhs.w;
+        }
+        //finds the angle between the vectors
+        float AngleBetween(Vector4 other)
+        {
+            // normalise the vectors
+            Vector4 a = GetNormalised();
+            Vector4 b = other.GetNormalised();
+            // calculate the dot product
+            float d = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+            // return the angle between them
+            return (float)Math.Acos(d);
         }
     }
 }
