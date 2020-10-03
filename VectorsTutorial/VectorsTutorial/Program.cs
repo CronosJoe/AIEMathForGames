@@ -7,9 +7,9 @@ namespace VectorsTutorial
        
         public static void Main()
         {
-            Vector2 exerciseTester = new Vector2(1, 1);
-            Vector2 exerciseTester2 = new Vector2(-1, -1);
-            Console.WriteLine(exerciseTester.Dot(exerciseTester2));
+            Vector3 exerciseTester = new Vector3(10, 0, 18);
+            Vector3 exerciseTester2 = new Vector3(-7.5f, 0, 9);
+            Console.WriteLine(exerciseTester.AngleBetween(exerciseTester2));
         }
     }
   

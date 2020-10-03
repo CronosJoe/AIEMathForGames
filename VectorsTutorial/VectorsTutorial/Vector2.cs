@@ -60,7 +60,7 @@ namespace VectorsTutorial
             return  new Vector2(y, -x);
         }
         //finds the angle between the vectors
-        float AngleBetween(Vector2 other)
+        public float AngleBetween(Vector2 other)
         {
             // normalise the vectors
             Vector2 a = GetNormalised();
@@ -140,7 +140,7 @@ namespace VectorsTutorial
            x * rhs.y - y * rhs.x);
         }
         //finds the angle between the vectors
-        float AngleBetween(Vector3 other)
+        public float AngleBetween(Vector3 other)
         {
             // normalise the vectors
             Vector3 a = GetNormalised();
@@ -206,7 +206,7 @@ namespace VectorsTutorial
             return x * rhs.x + y * rhs.y + z * rhs.z + w * rhs.w;
         }
         //finds the angle between the vectors
-        float AngleBetween(Vector4 other)
+        public float AngleBetween(Vector4 other)
         {
             // normalise the vectors
             Vector4 a = GetNormalised();
