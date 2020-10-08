@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitmasksutorial", "Bitmasksutorial\Bitmasksutorial.csproj", "{EBC05CE8-E4F1-46B1-88D6-B53BB40E63CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBC05CE8-E4F1-46B1-88D6-B53BB40E63CE}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{EBC05CE8-E4F1-46B1-88D6-B53BB40E63CE}.Debug|anycpu.Build.0 = Debug|anycpu
+		{EBC05CE8-E4F1-46B1-88D6-B53BB40E63CE}.Release|anycpu.ActiveCfg = Release|anycpu
+		{EBC05CE8-E4F1-46B1-88D6-B53BB40E63CE}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
