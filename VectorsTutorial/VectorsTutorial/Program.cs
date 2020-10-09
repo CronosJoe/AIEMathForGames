@@ -7,9 +7,9 @@ namespace VectorsTutorial
        
         public static void Main()
         {
-            Vector3 exerciseTester = new Vector3(10, 0, 18);
-            Vector3 exerciseTester2 = new Vector3(-7.5f, 0, 9);
-            Console.WriteLine(exerciseTester.AngleBetween(exerciseTester2));
+            Binary test = new Binary();
+            bool tester = test.IsLeftMostBitSet(0b00101);
+            Console.WriteLine(tester);
         }
     }
   
