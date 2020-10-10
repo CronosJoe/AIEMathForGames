@@ -72,7 +72,7 @@ namespace VectorsTutorial
         }
     }
 
-    class Vector3
+    public class Vector3
     { 
         public float x, y, z;
         public Vector3(float v1, float v2, float v3)
@@ -151,7 +151,7 @@ namespace VectorsTutorial
             return (float)Math.Acos(d);
         }
     }
-    class Vector4
+    public class Vector4
     {
         public float x, y, z, w;
         public Vector4(float x, float y, float z, float w)
