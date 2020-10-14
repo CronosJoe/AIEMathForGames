@@ -72,6 +72,48 @@ namespace VectorsTutorial
             m.SetScaled(v.x, v.y, v.z);
             Set(this * m);
         }
+        public void SetRotateX(double radians)
+        {
+            Set( new Matrix3(
+            1, 0, 0,
+            0, (float)Math.Cos(radians), (float)Math.Sin(radians),
+            0, (float)-Math.Sin(radians), (float)Math.Cos(radians)));
+        }
+        public void RotateX(double radians)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetRotateX(radians);
+            Set(this * m);
+        }
+        public void SetRotateY(double radians)
+        {
+            Set(new Matrix3((float)Math.Cos(radians), 0, (float)-Math.Sin(radians),
+             0,1,0,
+             (float)Math.Sin(radians), 0, (float)Math.Cos(radians)));
+        }
+        public void RotateY(double radians)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetRotateY(radians);
+            Set(this * m);
+        }
+        public void SetRotateZ(double radians)
+        {
+            Set(new Matrix3((float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+                (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
+                0,0,1));
+        }
+        public void SetEuler(float pitch, float yaw, float roll)
+        {
+            Matrix3 x = new Matrix3();
+            Matrix3 y = new Matrix3();
+            Matrix3 z = new Matrix3();
+            x.SetRotateX(pitch);
+            y.SetRotateY(yaw);
+            z.SetRotateZ(roll);
+            // combine rotations in a specific order
+            Set(z * y * x);
+        }
     }
 
     public class Matrix4
@@ -143,9 +185,10 @@ namespace VectorsTutorial
         }
         public void Set(Vector4 v)
         {
-            m1 = v.x; m2 = 0; m3 = 0;
-            m4 = 0; m5 = v.y; m6 = 0;
-            m7 = 0; m8 = 0; m9 = v.z;
+            m1 = v.x; m2 = 0; m3 = 0; m4 = 0;
+            m5 = 0; m6 = v.y; m7 = 0; m8 = 0;
+            m9 = 0; m10 = 0; m11 = v.z; m12 = 0;
+            m13 = 0; m14 = 0; m15 = 0; m16 = v.w;
         }
         public void Scale(Vector4 v)
         {
@@ -153,6 +196,7 @@ namespace VectorsTutorial
             m.SetScaled(v.x, v.y, v.z, v.w);
             Set(this * m);
         }
+        //set Z/Y/Z not done for matrix four because I wasn't sure how to do W
 
     }
 
