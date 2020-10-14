@@ -66,13 +66,6 @@ namespace VectorsTutorial
             m4 = m.m4; m5 = m.m5; m6 = m.m6;
             m7 = m.m7; m8 = m.m8; m9 = m.m9;
         }
-        //setting a matrix using a vector only sets each axis wasn't sure how to do it
-        public void Set(Vector3 v)
-        {
-            m1 = v.x; m2 = 0; m3 = 0;
-            m4 = 0; m5 = v.y; m6 = 0;
-            m7 = 0; m8 = 0; m9 = v.z;
-        }
         public void Scale(Vector3 v)
         {
             Matrix3 m = new Matrix3();
