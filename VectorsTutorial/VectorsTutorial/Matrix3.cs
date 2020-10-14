@@ -18,6 +18,10 @@ namespace VectorsTutorial
             this.zAxis = new Vector3(m3, m6, m9);
         }
 
+        public Matrix3()
+        {
+        }
+
         public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
         {
             return new Matrix3(
@@ -37,6 +41,36 @@ namespace VectorsTutorial
            m1, m4, m7,
            m2, m5, m8,
            m3, m6, m9);
+        }
+        public void SetScaled(float x, float y, float z)
+        {
+            m1 = x; m2 = 0; m3 = 0;
+            m4 = 0; m5 = y; m6 = 0;
+            m7 = 0; m8 = 0; m9 = z;
+        }
+        public void SetScaled(Vector3 v)
+        {
+            m1 = v.x; m2 = 0; m3 = 0;
+            m4 = 0; m5 = v.y; m6 = 0;
+            m7 = 0; m8 = 0; m9 = v.z;
+        }
+        public void Set(Matrix3 m)
+        {
+            m1 = m.m1; m2 = m.m2; m3 = m.m3;
+            m4 = m.m4; m5 = m.m5; m6 = m.m6;
+            m7 = m.m7; m8 = m.m8; m9 = m.m9;
+        }
+        public void Set(Vector3 v)
+        {
+            m1 = v.x; m2 = 0; m3 = 0;
+            m4 = 0; m5 = v.y; m6 = 0;
+            m7 = 0; m8 = 0; m9 = v.z;
+        }
+        public void Scale(Vector3 v)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetScaled(v.x, v.y, v.z);
+            Set(this * m);
         }
     }
 
@@ -60,6 +94,11 @@ namespace VectorsTutorial
             this.zAxis = new Vector4(m3, m7, m11, m15);
             this.wAxis = new Vector4(m4, m8, m12, m16);
         }
+
+        public Matrix4()
+        {
+        }
+
         public static Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)
         {
             return new Matrix4(
@@ -80,6 +119,39 @@ namespace VectorsTutorial
                 m2, m6, m10, m14,
                 m3, m7 , m11, m15,
                 m4, m8, m12, m16);
+        }
+        public void SetScaled(float x, float y, float z, float w)
+        {
+            m1 = x; m2 = 0; m3 = 0; m4 = 0;
+            m5 = 0; m6 = y; m7 = 0; m8 = 0;
+            m9 = 0; m10 = 0; m11 = z; m12 = 0;
+            m13 = 0;m14 = 0;m15 = 0; m16 = w;
+        }
+        public void SetScaled(Vector4 v)
+        {
+            m1 = v.x; m2 = 0; m3 = 0; m4 = 0;
+            m5 = 0; m6 = v.y; m7 = 0; m8 = 0;
+            m9 = 0; m10 = 0; m11 = v.z; m12 = 0;
+            m13 = 0; m14 = 0; m15 = 0; m16 = v.w;
+        }
+        public void Set(Matrix4 m)
+        {
+            m1 = m.m1; m2 = m.m2; m3 = m.m3; m4 = m.m4;
+            m5 = m.m5; m6 = m.m6; m7 = m.m7; m8 = m.m8;
+            m9 = m.m9; m10 = m.m10; m11 = m.m11; m12 = m.m12;
+            m13 = m.m13; m14 = m.m14; m15 = m.m15; m16 = m.m16;
+        }
+        public void Set(Vector4 v)
+        {
+            m1 = v.x; m2 = 0; m3 = 0;
+            m4 = 0; m5 = v.y; m6 = 0;
+            m7 = 0; m8 = 0; m9 = v.z;
+        }
+        public void Scale(Vector4 v)
+        {
+            Matrix4 m = new Matrix4();
+            m.SetScaled(v.x, v.y, v.z, v.w);
+            Set(this * m);
         }
 
     }
