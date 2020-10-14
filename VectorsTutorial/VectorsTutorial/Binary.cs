@@ -7,25 +7,15 @@ namespace VectorsTutorial
     {
         public bool IsLeftMostBitSet(uint value)
         {
-
-            /* Returns true if the left most (the most significant) bit of value is set and
-            false otherwise*/
-            Console.WriteLine(value);
-            return false;
+            return (((value >> 31) & 1) > 0);
         }
         public bool IsRightMostBitSet(uint value)
         {
-            /*  Returns true if the right most (the least significant) bit of value is set and
- false otherwise */
-            return false;
-           
+            return (((value >> 0) & 1) > 0);
         }
         public bool IsBitSet(uint value, char bit_to_check)
         {
-            /*• Returns true if the asked for bit is set, and false otherwise. bit_to_check is
-zero indexed from the right most bit. i.e 0 is the right most bit and 31 is the
-left most. */
-            return false; 
+            return (((value >> (bit_to_check - 1)) & 1) > 0); //doesn't work if bit to check is 0 cause it will shift -1 bits over
         }
         public int GetRightMostSetBit(uint value)
         {
@@ -38,11 +28,30 @@ o 10011100 would return 2
 o 01010000 would return 4
 o 00000000 would return -1
              */
+            int pos = 0;
+            for(int i = 1; i <= 32; i++) //since it is a 32 bit integar going through all 32 should eventually find a number and return the position, if no number is found loop ends and -1 is returned.
+            {
+                if((((value >> (i - 1)) &  1) > 0))
+                {
+                    return pos;
+                }
+                pos++;
+            }
             return -1;
         }
         public void PrintBinary(byte value)
         {
-            Console.WriteLine("print value as a binary");
+            for (int i = 8; i >= 1; i--) 
+            {
+                if ((((value >> (i - 1)) & 1) > 0))
+                {
+                    Console.Write(1);
+                }
+                else
+                {
+                    Console.Write(0);
+                }
+            }
         }
 
     }

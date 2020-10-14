@@ -197,7 +197,24 @@ namespace VectorsTutorial
             Set(this * m);
         }
         //set Z/Y/Z not done for matrix four because I wasn't sure how to do W
-
+        public void SetRotateX(double radians)
+        {
+            Set(new Matrix4(
+            1, 0, 0, 0,
+            0, (float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+            0, (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
+            0, 0, 0, 1));
+        }
+        //set rotate y/z/w not mentioned?
+        public void SetTranslation(float x, float y, float z)
+        {
+            m13 = z; m14 = y; m15 = z; m16 = 1;
+        }
+        public void Translate(float x, float y, float z)
+        {
+            // apply vector offset
+            m13 += z; m14 += y; m15 += z;
+        }
     }
 
 }

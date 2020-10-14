@@ -8,8 +8,8 @@ namespace VectorsTutorial
         public static void Main()
         {
             Binary test = new Binary();
-            bool tester = test.IsLeftMostBitSet(0b00101);
-            Console.WriteLine(tester);
+            bool tester = test.IsRightMostBitSet(0b10000000000000000000000000000000);
+            test.PrintBinary(0b11111111);
         }
     }
   
