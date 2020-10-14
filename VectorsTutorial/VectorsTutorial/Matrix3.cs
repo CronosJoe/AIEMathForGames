@@ -8,6 +8,7 @@ namespace VectorsTutorial
         public Vector3 yAxis;
         public Vector3 zAxis;
         public readonly static Matrix3 identity = new Matrix3(1,0,0,0,1,0,0,0,1);
+        //constructs
         public Matrix3(float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9)
         {
             this.m1 = m1; this.m2 = m2; this.m3 = m3;
@@ -21,7 +22,7 @@ namespace VectorsTutorial
         public Matrix3()
         {
         }
-
+        //Matrix multiplying by matrix
         public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
         {
             return new Matrix3(
@@ -30,10 +31,12 @@ namespace VectorsTutorial
                  lhs.m1 * rhs.m7 + lhs.m4 * rhs.m8 + lhs.m7 * rhs.m9/*m7*/, lhs.m2 * rhs.m7 + lhs.m5 * rhs.m8 + lhs.m8 * rhs.m9/*m8*/, lhs.m3 * rhs.m7 + lhs.m6 * rhs.m8 + lhs.m9 * rhs.m9/*m9*/
                 );
         }
+        //matrix by scalar
         public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
         {
             return new Vector3((lhs.m1 * rhs.x) + (lhs.m4 * rhs.y) + (lhs.m7 * rhs.z), (lhs.m2 * rhs.x) + (lhs.m5 * rhs.y) + (lhs.m8 * rhs.z), (lhs.m3 * rhs.x) + (lhs.m6 * rhs.y) + (lhs.m9 * rhs.z));
         }
+        //Transposing a matrix3
         public Matrix3 GetTransposed()
         {
             // flip row and column
@@ -42,24 +45,28 @@ namespace VectorsTutorial
            m2, m5, m8,
            m3, m6, m9);
         }
+        //setting a scaled matrix3 to multiply by
         public void SetScaled(float x, float y, float z)
         {
             m1 = x; m2 = 0; m3 = 0;
             m4 = 0; m5 = y; m6 = 0;
             m7 = 0; m8 = 0; m9 = z;
         }
+        //setting a scaled matrix 3 using a vector instead of 3 values.
         public void SetScaled(Vector3 v)
         {
             m1 = v.x; m2 = 0; m3 = 0;
             m4 = 0; m5 = v.y; m6 = 0;
             m7 = 0; m8 = 0; m9 = v.z;
         }
+        //setting a matrix to the inputed matrix
         public void Set(Matrix3 m)
         {
             m1 = m.m1; m2 = m.m2; m3 = m.m3;
             m4 = m.m4; m5 = m.m5; m6 = m.m6;
             m7 = m.m7; m8 = m.m8; m9 = m.m9;
         }
+        //setting a matrix using a vector only sets each axis wasn't sure how to do it
         public void Set(Vector3 v)
         {
             m1 = v.x; m2 = 0; m3 = 0;
