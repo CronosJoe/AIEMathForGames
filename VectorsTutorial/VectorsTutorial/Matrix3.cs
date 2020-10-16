@@ -66,12 +66,14 @@ namespace VectorsTutorial
             m4 = m.m4; m5 = m.m5; m6 = m.m6;
             m7 = m.m7; m8 = m.m8; m9 = m.m9;
         }
+        //scales a matrix.
         public void Scale(Vector3 v)
         {
             Matrix3 m = new Matrix3();
             m.SetScaled(v.x, v.y, v.z);
             Set(this * m);
         }
+        //sets a matrix to the rotated x
         public void SetRotateX(double radians)
         {
             Set( new Matrix3(
@@ -79,12 +81,14 @@ namespace VectorsTutorial
             0, (float)Math.Cos(radians), (float)Math.Sin(radians),
             0, (float)-Math.Sin(radians), (float)Math.Cos(radians)));
         }
+        //rotates the matrix by the rotated x matrix.
         public void RotateX(double radians)
         {
             Matrix3 m = new Matrix3();
             m.SetRotateX(radians);
             Set(this * m);
         }
+        //repeat last two methods but for y
         public void SetRotateY(double radians)
         {
             Set(new Matrix3((float)Math.Cos(radians), 0, (float)-Math.Sin(radians),
@@ -97,6 +101,7 @@ namespace VectorsTutorial
             m.SetRotateY(radians);
             Set(this * m);
         }
+        //repeat last 4 methods but for z
         public void SetRotateZ(double radians)
         {
             Set(new Matrix3((float)Math.Cos(radians), (float)Math.Sin(radians), 0,
@@ -140,7 +145,7 @@ namespace VectorsTutorial
         public Matrix4()
         {
         }
-
+        //operators
         public static Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)
         {
             return new Matrix4(
@@ -162,6 +167,7 @@ namespace VectorsTutorial
                 m3, m7 , m11, m15,
                 m4, m8, m12, m16);
         }
+        //sets to a scaled matrix
         public void SetScaled(float x, float y, float z, float w)
         {
             m1 = x; m2 = 0; m3 = 0; m4 = 0;
@@ -169,6 +175,7 @@ namespace VectorsTutorial
             m9 = 0; m10 = 0; m11 = z; m12 = 0;
             m13 = 0;m14 = 0;m15 = 0; m16 = w;
         }
+        //same as previous but uses a vector instead of 4 inputed values.
         public void SetScaled(Vector4 v)
         {
             m1 = v.x; m2 = 0; m3 = 0; m4 = 0;
@@ -176,6 +183,7 @@ namespace VectorsTutorial
             m9 = 0; m10 = 0; m11 = v.z; m12 = 0;
             m13 = 0; m14 = 0; m15 = 0; m16 = v.w;
         }
+        //sets a matrix
         public void Set(Matrix4 m)
         {
             m1 = m.m1; m2 = m.m2; m3 = m.m3; m4 = m.m4;
@@ -183,13 +191,7 @@ namespace VectorsTutorial
             m9 = m.m9; m10 = m.m10; m11 = m.m11; m12 = m.m12;
             m13 = m.m13; m14 = m.m14; m15 = m.m15; m16 = m.m16;
         }
-        public void Set(Vector4 v)
-        {
-            m1 = v.x; m2 = 0; m3 = 0; m4 = 0;
-            m5 = 0; m6 = v.y; m7 = 0; m8 = 0;
-            m9 = 0; m10 = 0; m11 = v.z; m12 = 0;
-            m13 = 0; m14 = 0; m15 = 0; m16 = v.w;
-        }
+        //scales a matrix
         public void Scale(Vector4 v)
         {
             Matrix4 m = new Matrix4();

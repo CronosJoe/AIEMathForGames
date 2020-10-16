@@ -9,6 +9,7 @@ namespace VectorsTutorial
         }
         public Color(byte red, byte green, byte blue, byte alpha)
         { }
+        //getting and setting rgb and alpha.
         public byte GetRed()
         {
             UInt32 value = color & 0xff000000;

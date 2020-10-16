@@ -216,6 +216,7 @@ namespace VectorsTutorial
             // return the angle between them
             return (float)Math.Acos(d);
         }
+        //operators for the class +-* no division
         public static Vector4 operator +(Vector4 lhs, Vector4 rhs)
         {
             return new Vector4(
@@ -240,6 +241,7 @@ namespace VectorsTutorial
            lhs.z * rhs,
            lhs.w * rhs);
         }
+        //cross product
         public Vector4 Cross(Vector4 rhs)
         {
             return new Vector4(
