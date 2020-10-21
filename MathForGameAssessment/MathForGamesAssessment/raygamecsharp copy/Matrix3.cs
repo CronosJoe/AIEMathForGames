@@ -73,6 +73,12 @@ namespace VectorsTutorial
             m.SetScaled(v.x, v.y, v.z);
             Set(this * m);
         }
+        public void Scale(float x, float y, float z)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetScaled(x, y, z);
+            Set(this * m);
+        }
         //sets a matrix to the rotated x
         public void SetRotateX(double radians)
         {
@@ -108,6 +114,12 @@ namespace VectorsTutorial
                 (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
                 0, 0, 1));
         }
+        public void RotateZ(double radians)
+        {
+            Matrix3 m = new Matrix3();
+            m.SetRotateZ(radians);
+            Set(this * m);
+        }
         public void SetEuler(float pitch, float yaw, float roll)
         {
             Matrix3 x = new Matrix3();
@@ -119,6 +131,17 @@ namespace VectorsTutorial
             // combine rotations in a specific order
             Set(z * y * x);
         }
+        //set rotate y/z/w not mentioned?
+        public void SetTranslation(float x, float y)
+        {
+            m7 = x; m8 = y; m9 = 1;
+        }
+        public void Translate(float x, float y)
+        {
+            // apply vector offset
+            m7 += x; m8 += y;
+        }
+        
     }
 
     public class Matrix4
@@ -198,6 +221,12 @@ namespace VectorsTutorial
             m.SetScaled(v.x, v.y, v.z, v.w);
             Set(this * m);
         }
+        public void Scale(float x, float y, float z, float w)
+        {
+            Matrix4 m = new Matrix4();
+            m.SetScaled(x, y, z, w);
+            Set(this * m);
+        }
         //set Z/Y/Z not done for matrix four because I wasn't sure how to do W
         public void SetRotateX(double radians)
         {
@@ -210,13 +239,13 @@ namespace VectorsTutorial
         //set rotate y/z/w not mentioned?
         public void SetTranslation(float x, float y, float z)
         {
-            m13 = z; m14 = y; m15 = z; m16 = 1;
+            m13 = x; m14 = y; m15 = z; m16 = 1;
         }
         public void Translate(float x, float y, float z)
         {
             // apply vector offset
-            m13 += z; m14 += y; m15 += z;
+            m13 += x; m14 += y; m15 += z;
         }
     }
-
+    
 }
