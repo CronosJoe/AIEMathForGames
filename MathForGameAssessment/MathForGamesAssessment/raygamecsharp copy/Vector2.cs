@@ -90,6 +90,13 @@ namespace VectorsTutorial
         {
             return new Vector3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z);
         }
+        public static Vector3 operator *(Vector3 lhs, float rhs)
+        {
+            return new Vector3(
+           lhs.x * rhs,
+           lhs.y * rhs,
+           lhs.z * rhs);
+        }
         //returns the magnitude of the vector
         public float Magnitude()
         {

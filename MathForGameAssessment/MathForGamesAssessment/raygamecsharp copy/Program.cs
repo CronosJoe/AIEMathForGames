@@ -30,45 +30,28 @@ using Raylib_cs;
 using System;
 using System.IO;
 
-namespace Examples
+namespace VectorsTutorial
 {
-    public class core_basic_window
+    class Program
     {
-       
-        public static int Main()
+        
+        static void Main(string[] args)
         {
-            // Initialization
-            //--------------------------------------------------------------------------------------
-            const int screenWidth = 800;
-            const int screenHeight = 450;
+            Game game = new Game();
 
-            InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+            
+
             SetTargetFPS(60);
-            //--------------------------------------------------------------------------------------
+            InitWindow(640, 480, "Tanks for Everything!");
+            game.Init();
 
-            // Main game loop
-            while (!WindowShouldClose())    // Detect window close button or ESC key
+            while (!WindowShouldClose())
             {
-                //update
-
-                //drawing
-                BeginDrawing();
-                ClearBackground(WHITE);
-                DrawText("First Scene", 400, 200, 15, RED);
-                EndDrawing();
-
-
-
-
-                //----------------------------------------------------------------------------------
-            } //end of main game loop
-
-            // De-Initialization
-            //--------------------------------------------------------------------------------------
-            CloseWindow();        // Close window and OpenGL context
-            //--------------------------------------------------------------------------------------
-
-            return 0;
-        }//end of main
+                game.Update();
+                game.Draw();
+            }
+            game.Shutdown();
+            CloseWindow();
+        }
     }
 }
