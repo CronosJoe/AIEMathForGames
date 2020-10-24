@@ -66,6 +66,12 @@ namespace VectorsTutorial
             m4 = m.m4; m5 = m.m5; m6 = m.m6;
             m7 = m.m7; m8 = m.m8; m9 = m.m9;
         }
+        public void Set(float M1, float M2, float M3, float M4, float M5, float M6, float M7, float M8, float M9)
+        {
+            m1 = M1; m2 = M2; m3 = M3;
+            m4 = M4; m5 = M5; m6 = M6;
+            m7 = M7; m8 = M8; m9 = M9;
+        }
         //scales a matrix.
         public void Scale(Vector3 v)
         {
@@ -82,10 +88,10 @@ namespace VectorsTutorial
         //sets a matrix to the rotated x
         public void SetRotateX(double radians)
         {
-            Set(new Matrix3(
+            Set(
             1, 0, 0,
             0, (float)Math.Cos(radians), (float)Math.Sin(radians),
-            0, (float)-Math.Sin(radians), (float)Math.Cos(radians)));
+            0, (float)-Math.Sin(radians), (float)Math.Cos(radians));
         }
         //rotates the matrix by the rotated x matrix.
         public void RotateX(double radians)
@@ -97,9 +103,9 @@ namespace VectorsTutorial
         //repeat last two methods but for y
         public void SetRotateY(double radians)
         {
-            Set(new Matrix3((float)Math.Cos(radians), 0, (float)-Math.Sin(radians),
+            Set((float)Math.Cos(radians), 0, (float)-Math.Sin(radians),
              0, 1, 0,
-             (float)Math.Sin(radians), 0, (float)Math.Cos(radians)));
+             (float)Math.Sin(radians), 0, (float)Math.Cos(radians));
         }
         public void RotateY(double radians)
         {
@@ -110,9 +116,9 @@ namespace VectorsTutorial
         //repeat last 4 methods but for z
         public void SetRotateZ(double radians)
         {
-            Set(new Matrix3((float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+            Set((float)Math.Cos(radians), (float)Math.Sin(radians), 0,
                 (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
-                0, 0, 1));
+                0, 0, 1);
         }
         public void RotateZ(double radians)
         {

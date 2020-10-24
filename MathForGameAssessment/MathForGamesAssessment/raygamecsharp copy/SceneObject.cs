@@ -30,9 +30,13 @@ namespace VectorsTutorial
         public void UpdateTransform()
         {
             if (parent != null)
+            {
                 globalTransform = parent.globalTransform * localTransform;
+            }
             else
+            {
                 globalTransform = localTransform;
+            }
             foreach (SceneObject child in children)
                 child.UpdateTransform();
         }
@@ -71,7 +75,7 @@ namespace VectorsTutorial
                 so.parent = null;
             }
         }
-        public virtual void OnUpdate(float delatTime)
+        public virtual void OnUpdate(float deltaTime)
         {
         }
         public virtual void OnDraw()
