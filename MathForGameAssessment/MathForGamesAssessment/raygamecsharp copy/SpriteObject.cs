@@ -29,6 +29,7 @@ namespace VectorsTutorial
         {
             float rotation = (float)Math.Atan2(
            globalTransform.m2, globalTransform.m1);
+
             Raylib.DrawTextureEx(
             texture, new System.Numerics.Vector2(globalTransform.m7, globalTransform.m8),
             rotation * (float)(180.0f / Math.PI), 1, WHITE);
