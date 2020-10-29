@@ -21,6 +21,9 @@ namespace VectorsTutorial
 
         public Matrix3()
         {
+            this.m1 = identity.m1; this.m2 = identity.m2; this.m3 = identity.m3;
+            this.m4 = identity.m4; this.m5 = identity.m5; this.m6 = identity.m6;
+            this.m7 = identity.m7; this.m8 = identity.m8; this.m9 = identity.m9;
         }
         //Matrix multiplying by matrix
         public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
@@ -173,6 +176,10 @@ namespace VectorsTutorial
 
         public Matrix4()
         {
+            this.m1 = identity.m1; this.m2 = identity.m2; this.m3 = identity.m3; this.m4 = identity.m4;
+            this.m5 = identity.m5; this.m6 = identity.m6; this.m7 = identity.m7; this.m8 = identity.m8;
+            this.m9 = identity.m9; this.m10 = identity.m10; this.m11 = identity.m11; this.m12 = identity.m12;
+            this.m13 = identity.m13; this.m14 = identity.m14; this.m15 = identity.m15; this.m16 = identity.m16;
         }
         //operators
         public static Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)

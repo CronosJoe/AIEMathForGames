@@ -9,6 +9,7 @@ namespace VectorsTutorial
     {
         Texture2D texture = new Texture2D();
         Image image = new Image();
+        //getters and setters for height and width
         public float Width
         {
             get { return texture.width; }
@@ -17,14 +18,17 @@ namespace VectorsTutorial
         {
             get { return texture.height; }
         }
+        //constructor
         public SpriteObject()
         {
         }
+        //load an image method
         public void Load(string filename)
         {
             Image img = LoadImage(filename);
             texture = LoadTextureFromImage(img);
         }
+        //an ovverride for sceneobjects OnDraw method, this one draws the image.
         public override void OnDraw()
         {
             float rotation = (float)Math.Atan2(
