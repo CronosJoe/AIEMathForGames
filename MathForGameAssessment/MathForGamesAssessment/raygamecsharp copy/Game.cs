@@ -86,14 +86,29 @@ namespace VectorsTutorial
                 Vector3 facing = new Vector3(
                tankObject.LocalTransform.m1,
                tankObject.LocalTransform.m2, 1) * deltaTime * 100;
-                tankObject.Translate(facing.x, facing.y);
+                if (/*left*/(facing.x < 0 && tankObject.GlobalTransform.m7 > 37) || /*right*/(facing.x>0 && tankObject.GlobalTransform.m7<604))
+                {
+                    if (/*top*/(facing.y < 0 && tankObject.GlobalTransform.m8 > 36) || /*bot*/ (facing.y > 0 && tankObject.GlobalTransform.m8 < 447))
+                    {
+                        tankObject.Translate(facing.x, facing.y);
+                    }
+                }
             }
             if (IsKeyDown(KeyboardKey.KEY_S) && !fired)
             {
                 Vector3 facing = new Vector3(
                tankObject.LocalTransform.m1,
                tankObject.LocalTransform.m2, 1) * deltaTime * -100;
-                tankObject.Translate(facing.x, facing.y);
+
+                Console.WriteLine("facing x" + facing.x);
+                Console.WriteLine("facing y" + facing.y);
+                if (/*left*/(facing.x < 0 && tankObject.GlobalTransform.m7 > 37) || /*right*/(facing.x > 0 && tankObject.GlobalTransform.m7 < 604))
+                {
+                    if (/*top*/(facing.y < 0 && tankObject.GlobalTransform.m8 > 36) || /*bot*/ (facing.y > 0 && tankObject.GlobalTransform.m8 < 447))
+                    {
+                        tankObject.Translate(facing.x, facing.y);
+                    }
+                }
             }
             if (IsKeyDown(KeyboardKey.KEY_Q) && !fired)
             {
