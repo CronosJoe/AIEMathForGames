@@ -15,7 +15,7 @@ namespace VectorsTutorial
         private int fps = 1;
         private int frames;
         private float deltaTime = 0.005f;
-
+        public int score = 0;
         public SceneObject tankObject = new SceneObject();
         public SceneObject turretObject = new SceneObject();
         public SpriteObject tankSprite = new SpriteObject();
@@ -23,6 +23,7 @@ namespace VectorsTutorial
         public SceneObject bulletObject = new SceneObject();
         public SpriteObject bulletSprite = new SpriteObject();
         public bool fired = false;
+        
         public void Init()
         {
             stopwatch.Start();
@@ -55,8 +56,10 @@ namespace VectorsTutorial
             #endregion
 
         }
+        //a method that would be used when app is shutdown not enough time to add stuff here.
         public void Shutdown()
         { }
+        //updates the game each frame
         public void Update()
         {
             currentTime = stopwatch.ElapsedMilliseconds;
@@ -105,15 +108,20 @@ namespace VectorsTutorial
                 fired = true;
                 turretSprite.AddChild(bulletObject);
                 bulletObject.UpdateTransform();
-                
-                
             }
             if (fired)
             {
                 Vector3 facing = new Vector3(
                bulletObject.LocalTransform.m1,
                bulletObject.LocalTransform.m2, 1) * deltaTime * 100;
-                bulletObject.Translate(facing.x, facing.y);
+                bulletObject.Translate(facing.y*4, facing.x*4);
+                if (bulletObject.LocalTransform.m8 > 1000)
+                { 
+                    fired = false;
+                    turretSprite.RemoveChild(bulletObject);
+                    bulletObject.LocalTransform.m8 = 1.7f; //resets the translate in a very imperfect way so that it can be fired again without crashing.
+                    score++;
+                }
             }
             #endregion
             tankObject.Update(deltaTime);
@@ -123,7 +131,12 @@ namespace VectorsTutorial
         {
             BeginDrawing();
             ClearBackground(WHITE);
+            DrawRectangle(0,0, GetScreenWidth(),10, RED); //top
+            DrawRectangle(0, GetScreenHeight()-10, GetScreenWidth(), 10, RED); //bot
+            DrawRectangle(0,0,10, GetScreenHeight(), RED); //left
+            DrawRectangle(GetScreenWidth()-10, 0, 10, GetScreenHeight(), RED); //right
             DrawText(fps.ToString(), 10, 10, 12, RED);
+            DrawText($"ShotsFired: {score}", 10, 20, 12, RED);
             tankObject.Draw();
             if (fired)
             {

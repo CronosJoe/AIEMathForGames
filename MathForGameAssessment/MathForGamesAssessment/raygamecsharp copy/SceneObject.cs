@@ -132,6 +132,7 @@ namespace VectorsTutorial
         }// translates the position of the object
         public void Translate(float x, float y)
         {
+           
             localTransform.Translate(x, y);
             UpdateTransform();
         }

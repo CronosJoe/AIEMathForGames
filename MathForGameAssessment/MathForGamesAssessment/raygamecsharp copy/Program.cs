@@ -42,7 +42,7 @@ namespace VectorsTutorial
             
 
             SetTargetFPS(60);
-            InitWindow(640, 480, "Take out FreddyBot!");
+            InitWindow(640, 480, "Take out the barriers!");
             game.Init();
 
             while (!WindowShouldClose())
