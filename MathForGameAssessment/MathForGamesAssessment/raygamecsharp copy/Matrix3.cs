@@ -24,6 +24,9 @@ namespace VectorsTutorial
             this.m1 = identity.m1; this.m2 = identity.m2; this.m3 = identity.m3;
             this.m4 = identity.m4; this.m5 = identity.m5; this.m6 = identity.m6;
             this.m7 = identity.m7; this.m8 = identity.m8; this.m9 = identity.m9;
+            this.xAxis = new Vector3(m1, m4, m7);
+            this.yAxis = new Vector3(m2, m5, m8);
+            this.zAxis = new Vector3(m3, m6, m9);
         }
         //Matrix multiplying by matrix
         public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)

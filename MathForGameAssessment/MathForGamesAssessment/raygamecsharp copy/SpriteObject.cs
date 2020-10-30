@@ -8,7 +8,7 @@ namespace VectorsTutorial
     public class SpriteObject : SceneObject
     {
         Texture2D texture = new Texture2D();
-        Image image = new Image();
+        //Image image = new Image();
         //getters and setters for height and width
         public float Width
         {
