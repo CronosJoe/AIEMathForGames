@@ -96,6 +96,14 @@ namespace MathClasses
            lhs.z * rhs,
            lhs.w * rhs);
         }
+        public static Vector4 operator *(float rhs, Vector4 lhs)
+        {
+            return new Vector4(
+           lhs.x * rhs,
+           lhs.y * rhs,
+           lhs.z * rhs,
+           lhs.w * rhs);
+        }
         //cross product
         public Vector4 Cross(Vector4 rhs)
         {

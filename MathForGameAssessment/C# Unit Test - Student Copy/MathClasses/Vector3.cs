@@ -31,6 +31,13 @@ namespace MathClasses
            lhs.y * rhs,
            lhs.z * rhs);
         }
+        public static Vector3 operator *( float rhs, Vector3 lhs)
+        {
+            return new Vector3(
+           lhs.x * rhs,
+           lhs.y * rhs,
+           lhs.z * rhs);
+        }
         //returns the magnitude of the vector
         public float Magnitude()
         {
